@@ -8,3 +8,4 @@ export const WELCOME_LABEL = "Welcome, Sachin";
 export const LOCAL_STORAGE_KEY = "task_list";
 export const TO_DO_TASK_LABEL = "To do task";
 export const TO_DO_DATE_LABEL = "To do date";
+export const REMOVE_LABEL = "Remove";

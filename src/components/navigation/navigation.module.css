@@ -16,9 +16,9 @@
 }
 
 .nav_link_wrapper {
-  border: 1px solid #999;
-  padding: 12px 36px;
-  border-radius: 5px;
+  border-bottom: 3px solid #f6df45;
+  padding: 12px;
+  border-radius: 2px;
   margin-bottom: 12px;
 }
 

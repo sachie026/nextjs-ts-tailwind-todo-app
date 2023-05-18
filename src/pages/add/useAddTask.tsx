@@ -12,11 +12,17 @@ function useAddTask() {
     setToDate(e.target.value);
   };
 
+  const resetForm = () => {
+    setText("");
+    setToDate("");
+  };
+
   return {
     text,
     toDate,
     updateText,
     updateDate,
+    resetForm,
   };
 }
 

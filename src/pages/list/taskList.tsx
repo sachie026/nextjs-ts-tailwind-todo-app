@@ -1,8 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router";
 
 import Navigation from "@/components/navigation";
-import { LIST_TASK, BACK_LABEL } from "@/utils/label";
+import { LIST_TASK, LOCAL_STORAGE_KEY, REMOVE_LABEL } from "@/utils/label";
+import { useLocalStorage } from "@/utils/useLocalStorage";
 
 import ListCssModule from "./list.module.css";
 import useTaskList from "./useTaskList";
@@ -13,17 +13,34 @@ interface TaskProp {
 }
 
 function TaskList() {
-  const router = useRouter();
-  const { list } = useTaskList();
+  const { list, updateTaskList } = useTaskList();
+  const { remoteItemSection } = useLocalStorage();
+
+  const onRemoveClick = (id: number) => {
+    remoteItemSection(LOCAL_STORAGE_KEY, id);
+    updateTaskList();
+  };
 
   return (
     <div className={ListCssModule.container}>
       <Navigation hideIndex={2} />
-      {LIST_TASK}
+      <div className={ListCssModule.header_title}>{LIST_TASK}</div>
       {list.map((task: TaskProp, index) => {
-        return <div key={index}> {task.desc}</div>;
+        return (
+          <div key={index} className={ListCssModule.list_card}>
+            {task.desc}
+            <div className={ListCssModule.list_card_footer}>
+              <div className={ListCssModule.list_date}>{task.date}</div>
+              <button
+                className={ListCssModule.remove_button}
+                onClick={() => onRemoveClick(index)}
+              >
+                {REMOVE_LABEL}
+              </button>
+            </div>
+          </div>
+        );
       })}
-      <button onClick={router.back}>{BACK_LABEL}</button>
     </div>
   );
 }

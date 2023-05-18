@@ -28,6 +28,7 @@ function useTaskList() {
 
   return {
     list,
+    updateTaskList: getTaskLists,
   };
 }
 

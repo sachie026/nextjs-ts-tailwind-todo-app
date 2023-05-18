@@ -14,16 +14,19 @@ import useAddTask from "./useAddTask";
 import { useLocalStorage } from "@/utils/useLocalStorage";
 
 function TaskForm() {
-  const { text, toDate, updateText, updateDate } = useAddTask();
+  const { text, toDate, updateText, updateDate, resetForm } = useAddTask();
   const { setItem } = useLocalStorage();
 
   const addNewTask = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const obj = {
-      desc: text,
-      date: toDate,
-    };
-    setItem(LOCAL_STORAGE_KEY, JSON.stringify(obj));
+    if (text.length && toDate.length) {
+      const obj = {
+        desc: text,
+        date: toDate,
+      };
+      setItem(LOCAL_STORAGE_KEY, JSON.stringify(obj));
+      resetForm();
+    }
   };
 
   return (

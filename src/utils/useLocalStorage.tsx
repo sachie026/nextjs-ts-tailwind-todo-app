@@ -15,8 +15,25 @@ export function useLocalStorage() {
     return data ? JSON.parse(data) : "";
   };
 
+  const remoteItemSection = (key: string, index: number) => {
+    const data = localStorage.getItem(key);
+    if (data) {
+      const temp = JSON.parse(data);
+      const filteredArr = temp.filter(
+        (_item: string, id: number) => id !== index
+      );
+      localStorage.setItem(key, JSON.stringify(filteredArr));
+    }
+  };
+
+  const removeAllSections = () => {
+    localStorage.clear();
+  };
+
   return {
     setItem,
     getItem,
+    remoteItemSection,
+    removeAllSections,
   };
 }

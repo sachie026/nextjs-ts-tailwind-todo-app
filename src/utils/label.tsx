@@ -6,3 +6,5 @@ export const BACK_LABEL = "Back";
 export const ADD_LABEL = "Add";
 export const WELCOME_LABEL = "Welcome, Sachin";
 export const LOCAL_STORAGE_KEY = "task_list";
+export const TO_DO_TASK_LABEL = "To do task";
+export const TO_DO_DATE_LABEL = "To do date";

@@ -5,6 +5,8 @@ import {
   TO_DO_DATE,
   ADD_LABEL,
   LOCAL_STORAGE_KEY,
+  TO_DO_DATE_LABEL,
+  TO_DO_TASK_LABEL,
 } from "@/utils/label";
 import AddCssModule from "./add.module.css";
 
@@ -16,6 +18,7 @@ function TaskForm() {
   const { setItem } = useLocalStorage();
 
   const addNewTask = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const obj = {
       desc: text,
       date: toDate,
@@ -28,7 +31,7 @@ function TaskForm() {
       <label className={AddCssModule.label_info}>{TO_DO_LABEL}</label>
       <textarea
         className={AddCssModule.input_elem}
-        aria-label="To do task"
+        aria-label={TO_DO_TASK_LABEL}
         value={text}
         onChange={updateText}
       ></textarea>
@@ -36,7 +39,7 @@ function TaskForm() {
       <input
         className={AddCssModule.input_elem}
         type="date"
-        aria-label="To do date"
+        aria-label={TO_DO_DATE_LABEL}
         value={toDate}
         onChange={updateDate}
       />

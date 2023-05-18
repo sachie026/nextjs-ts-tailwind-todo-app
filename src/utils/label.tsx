@@ -5,3 +5,4 @@ export const TO_DO_DATE = "By when you need to finish the task?";
 export const BACK_LABEL = "Back";
 export const ADD_LABEL = "Add";
 export const WELCOME_LABEL = "Welcome, Sachin";
+export const LOCAL_STORAGE_KEY = "task_list";

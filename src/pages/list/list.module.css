@@ -18,6 +18,9 @@
   margin: 12px 0px;
   color: #aaa;
   font-size: 18px;
+  animation-name: list_card_animation;
+  animation-duration: 0.5s;
+  /* anima */
 }
 
 .list_date {
@@ -46,4 +49,13 @@
   cursor: pointer;
   padding: 4px 12px;
   border-radius: 3px;
+}
+
+@keyframes list_card_animation {
+  0% {
+    margin-right: 36px;
+  }
+  100% {
+    margin-right: 0px;
+  }
 }

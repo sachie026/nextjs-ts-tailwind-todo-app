@@ -2,7 +2,7 @@ import React from "react";
 
 import { REMOVE_LABEL } from "@/utils/label";
 
-import ListCardCssModule from "./list_card.module.css";
+import ListCardCssModule from "./list-card.module.css";
 
 export interface TaskProp {
   desc: string;

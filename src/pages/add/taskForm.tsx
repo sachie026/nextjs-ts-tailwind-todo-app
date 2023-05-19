@@ -23,6 +23,7 @@ function TaskForm() {
       const obj = {
         desc: text,
         date: toDate,
+        createdAt: new Date(),
       };
       setItem(LOCAL_STORAGE_KEY, JSON.stringify(obj));
       resetForm();

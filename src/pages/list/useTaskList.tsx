@@ -26,7 +26,13 @@ function useTaskList() {
   }
 
   function getTodaysTaskLists() {
-    const filteredList = list.filter(
+    const temp = getItem(LOCAL_STORAGE_KEY);
+    const arr: TaskProp[] = [];
+    temp.forEach((item: string) => {
+      arr.push(JSON.parse(item));
+    });
+
+    const filteredList = arr.filter(
       (task: TaskProp) =>
         dateDiffInDays(new Date(), new Date(task.createdAt)) === 0
     );
@@ -36,13 +42,9 @@ function useTaskList() {
 
   useEffect(() => {
     getTaskLists();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
     getTodaysTaskLists();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [list]);
+  }, []);
 
   return {
     list,

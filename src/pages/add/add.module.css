@@ -6,6 +6,7 @@
   margin: auto;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .nav_wrapper {
@@ -29,6 +30,7 @@
 }
 
 .add_task_content {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 12px 0px;

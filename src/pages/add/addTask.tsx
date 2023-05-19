@@ -12,12 +12,16 @@ import { useLocalStorage } from "@/utils/useLocalStorage";
 import HrLine from "@/components/hr-line";
 
 function AddTask() {
-  const { todaysTasks, updateTaskList } = useTaskList();
+  const { todaysTasks, updateTodaysTaskLists } = useTaskList();
   const { remoteItemSection } = useLocalStorage();
 
   const onRemoveClick = (id: number) => {
     remoteItemSection(LOCAL_STORAGE_KEY, id);
-    updateTaskList();
+    updateTodaysTaskLists();
+  };
+
+  const updateTodaysList = () => {
+    updateTodaysTaskLists();
   };
 
   return (
@@ -27,7 +31,7 @@ function AddTask() {
       </div>
 
       <TaskHeader title={ADD_TASK} />
-      <TaskForm />
+      <TaskForm updateTodaysList={updateTodaysList} />
       <HrLine />
       <TaskHeader title={TODAYS_TASK} />
       <TasksList list={todaysTasks} onRemoveClick={onRemoveClick} />

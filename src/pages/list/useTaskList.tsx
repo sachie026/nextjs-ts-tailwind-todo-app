@@ -18,6 +18,7 @@ function useTaskList() {
 
   function getTaskLists() {
     const temp = getItem(LOCAL_STORAGE_KEY);
+    if (!temp) return [];
     const arr: TaskProp[] = [];
     temp.forEach((item: string) => {
       arr.push(JSON.parse(item));
@@ -27,6 +28,7 @@ function useTaskList() {
 
   function getTodaysTaskLists() {
     const temp = getItem(LOCAL_STORAGE_KEY);
+    if (!temp) return [];
     const arr: TaskProp[] = [];
     temp.forEach((item: string) => {
       arr.push(JSON.parse(item));

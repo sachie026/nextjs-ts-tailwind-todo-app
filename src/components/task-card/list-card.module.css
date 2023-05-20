@@ -6,10 +6,11 @@
   background: #444;
   border-radius: 10px;
   margin: 12px 0px;
+  margin-top: 0px;
   color: #aaa;
   font-size: 18px;
   animation-name: list_card_animation;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 
 .list_date {
@@ -36,9 +37,9 @@
 
 @keyframes list_card_animation {
   0% {
-    margin-right: 36px;
+    margin-top: 36px;
   }
   100% {
-    margin-right: 0px;
+    margin-top: 0px;
   }
 }

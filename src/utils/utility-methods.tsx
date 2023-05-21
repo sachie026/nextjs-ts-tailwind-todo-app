@@ -1,3 +1,18 @@
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export function dateDiffInDays(current: Date, creation: Date) {
   const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
@@ -14,4 +29,11 @@ export function dateDiffInDays(current: Date, creation: Date) {
   );
 
   return Math.abs((utc2 - utc1) / _MS_PER_DAY);
+}
+
+export function getDayWithTime(creation: string) {
+  const tempDate = new Date(creation);
+  return `${tempDate.getDate()} ${
+    monthNames[tempDate.getMonth()]
+  }, ${tempDate.getHours()}:${tempDate.getMinutes()}`;
 }

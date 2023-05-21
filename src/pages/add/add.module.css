@@ -35,6 +35,10 @@
   flex-direction: column;
   padding: 12px 0px;
   width: 60%;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 24px;
+  background: #555;
 }
 
 .label_info {
@@ -46,6 +50,17 @@
 .input_elem {
   font-size: 16px;
   color: #aaa;
+  margin: 12px 0px;
+  padding: 12px;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.add_task_button {
+  font-size: 16px;
+  color: white;
+  background: #666;
+  cursor: pointer;
   margin: 12px 0px;
   padding: 12px;
   border: 0px;

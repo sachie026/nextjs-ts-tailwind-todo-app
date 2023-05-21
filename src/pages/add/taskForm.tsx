@@ -32,10 +32,9 @@ function TaskForm({ updateTodaysList }: Props) {
 
   const addNewTask = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (text.length && toDate.length) {
+    if (text.length) {
       const obj = {
         desc: text,
-        date: toDate,
         createdAt: new Date(),
       };
       setItem(LOCAL_STORAGE_KEY, JSON.stringify(obj));
@@ -56,15 +55,7 @@ function TaskForm({ updateTodaysList }: Props) {
         value={text}
         onChange={updateText}
       ></textarea>
-      <label className={AddCssModule.label_info}>{TO_DO_DATE}</label>
-      <input
-        className={AddCssModule.input_elem}
-        type="date"
-        aria-label={TO_DO_DATE_LABEL}
-        value={toDate}
-        onChange={updateDate}
-      />
-      <button className={AddCssModule.input_elem} onClick={addNewTask}>
+      <button className={AddCssModule.add_task_button} onClick={addNewTask}>
         {ADD_LABEL}
       </button>
     </div>
